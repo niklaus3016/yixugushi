@@ -24,3 +24,12 @@ Thumbs.db
 
 # misc
 *.tgz
+
+# local reference folder (never commit)
+qitaapp/
+
+# Android signing — keystore & credentials must never be committed
+*.jks
+*.keystore
+keystore.properties
+android/my-release-key.keystore
