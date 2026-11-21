@@ -1,0 +1,6 @@
+{
+  "name": "忆序古诗",
+  "description": "简洁诗词整理工具，可自由编排诗文清单，阅览品读，附带选句补诗闲趣玩法，所有内容本地保存。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

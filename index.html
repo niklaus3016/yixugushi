@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>忆序古诗 — 集诗成序，静以忆之</title>
+    <meta name="description" content="简洁诗词整理工具，可自由编排诗文清单，阅览品读，附带选句补诗闲趣玩法，所有内容本地保存。" />
+    <meta property="og:title" content="忆序古诗" />
+    <meta property="og:description" content="简洁诗词整理工具，可自由编排诗文清单，阅览品读，附带选句补诗闲趣玩法，所有内容本地保存。" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <script>
+      // Apply persisted theme before first paint to avoid a flash of the
+      // default (day) theme. Keys mirror useLocalPoetryStore (incl. legacy).
+      (function () {
+        try {
+          var keys = [
+            'com.yxgs.app.global_config_v1',
+            'yixu_global_config_v1',
+          ];
+          for (var i = 0; i < keys.length; i++) {
+            var raw = window.localStorage.getItem(keys[i]);
+            if (!raw) continue;
+            var cfg = JSON.parse(raw);
+            if (cfg && cfg.theme) {
+              document.documentElement.setAttribute('data-theme', cfg.theme);
+              break;
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

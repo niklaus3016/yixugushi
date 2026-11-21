@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@layer base {
+  :root,
+  [data-theme="day"] {
+    --bg-canvas: #f8f7f3;
+    --bg-surface: #ffffff;
+    --bg-subtle: #f1efe8;
+    --bg-hover: #eae6dc;
+    --border-hairline: #e4e0d5;
+    --text-primary: #1d1f21;
+    --text-secondary: #5a5e63;
+    --text-muted: #84888e;
+    --accent: #2c5e4f;
+    --accent-hover: #224b3f;
+    --accent-soft: #e8f0ed;
+    --accent-text: #ffffff;
+    --danger: #9e3b33;
+    --danger-soft: #f9ecea;
+    --success: #2c5e4f;
+    --success-soft: #e8f0ed;
+    color-scheme: light;
+  }
+
+  [data-theme="eye"] {
+    --bg-canvas: #e4ede3;
+    --bg-surface: #edf4ec;
+    --bg-subtle: #d7e4d5;
+    --bg-hover: #cde0cb;
+    --border-hairline: #c4d5c2;
+    --text-primary: #1b281e;
+    --text-secondary: #485b4c;
+    --text-muted: #6c7f70;
+    --accent: #245a3e;
+    --accent-hover: #1b4630;
+    --accent-soft: #cde0d2;
+    --accent-text: #ffffff;
+    --danger: #9c3d35;
+    --danger-soft: #f2dedc;
+    --success: #245a3e;
+    --success-soft: #cde0d2;
+    color-scheme: light;
+  }
+
+  [data-theme="night"] {
+    --bg-canvas: #141718;
+    --bg-surface: #1d2123;
+    --bg-subtle: #252a2d;
+    --bg-hover: #2d3337;
+    --border-hairline: #2e3438;
+    --text-primary: #e6e3da;
+    --text-secondary: #a5a8a4;
+    --text-muted: #767a7d;
+    --accent: #6aa893;
+    --accent-hover: #7bb9a4;
+    --accent-soft: #22352f;
+    --accent-text: #101715;
+    --danger: #d9776e;
+    --danger-soft: #362220;
+    --success: #6aa893;
+    --success-soft: #22352f;
+    color-scheme: dark;
+  }
+
+  html,
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 180ms ease, color 180ms ease;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+.font-poetry {
+  font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+}
+
+.font-ui {
+  font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.modal-pop {
+  animation: modal-pop 180ms ease-out;
+}
+
+@keyframes modal-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
