@@ -98,27 +98,27 @@ export const PoemMatchView: React.FC<PoemMatchViewProps> = ({
 
   return (
     <div className="max-w-2xl mx-auto space-y-5 pb-6">
-      <div className="flex items-center justify-between gap-4 min-h-[44px]">
+      <div className="flex items-center justify-between gap-4 min-h-11">
         <button
           type="button"
           onClick={onBackToRead}
-          className="min-h-[44px] inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)] hover:underline cursor-pointer whitespace-nowrap shrink-0"
+          className="min-h-11 inline-flex items-center gap-1.5 text-sm font-medium text-(--accent) hover:underline cursor-pointer whitespace-nowrap shrink-0"
         >
           <ArrowLeft className="w-4 h-4" />
           返回阅览
         </button>
-        <span className="text-xs text-[var(--text-muted)]">选句补诗</span>
+        <span className="text-xs text-(--text-muted)">选句补诗</span>
       </div>
 
-      <article className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] px-5 py-6 sm:px-8 sm:py-8">
+      <article className="rounded-2xl bg-(--bg-surface) border border-(--border-hairline) px-5 py-6 sm:px-8 sm:py-8">
         <header className="text-center max-w-lg mx-auto">
-          <h1 className="text-xl sm:text-2xl font-semibold font-poetry text-[var(--text-primary)] leading-snug [text-wrap:balance]">
+          <h1 className="text-xl sm:text-2xl font-semibold font-poetry text-(--text-primary) leading-snug text-balance">
             {poem.title}
           </h1>
-          <p className="mt-2 text-sm text-[var(--text-muted)] tracking-wider">
+          <p className="mt-2 text-sm text-(--text-muted) tracking-wider">
             〔{poem.dynasty}〕{poem.author}
           </p>
-          <div className="w-10 h-px bg-[var(--border-hairline)] mx-auto mt-4" />
+          <div className="w-10 h-px bg-(--border-hairline) mx-auto mt-4" />
         </header>
 
         <div className={`mt-6 font-poetry text-center space-y-3 ${poemTextSizeClass}`}>
@@ -127,7 +127,7 @@ export const PoemMatchView: React.FC<PoemMatchViewProps> = ({
             if (!isTarget) {
               const clauses = splitClauses(sentence);
               return (
-                <p key={idx} className="text-[var(--text-primary)]">
+                <p key={idx} className="text-(--text-primary)">
                   {clauses.map((clause, cIdx) => (
                     <span
                       key={cIdx}
@@ -148,7 +148,7 @@ export const PoemMatchView: React.FC<PoemMatchViewProps> = ({
               return (
                 <p
                   key={idx}
-                  className="inline-block px-3 py-1 rounded-xl bg-[var(--accent-soft)] text-[var(--accent)] font-semibold"
+                  className="inline-block px-3 py-1 rounded-xl bg-(--accent-soft) text-(--accent) font-semibold"
                 >
                   {round.targetOriginal}
                 </p>
@@ -158,7 +158,7 @@ export const PoemMatchView: React.FC<PoemMatchViewProps> = ({
             return (
               <p
                 key={idx}
-                className="inline-block px-4 py-1.5 rounded-xl border border-dashed border-[var(--accent)] bg-[var(--bg-canvas)] text-[var(--text-muted)] text-sm sm:text-base"
+                className="inline-block px-4 py-1.5 rounded-xl border border-dashed border-(--accent) bg-(--bg-canvas) text-(--text-muted) text-sm sm:text-base"
               >
                 〔 待选原句 〕
               </p>
@@ -167,8 +167,8 @@ export const PoemMatchView: React.FC<PoemMatchViewProps> = ({
         </div>
       </article>
 
-      <section className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] p-5 sm:p-6">
-        <p className="text-sm font-medium text-[var(--text-primary)] mb-4">
+      <section className="rounded-2xl bg-(--bg-surface) border border-(--border-hairline) p-5 sm:p-6">
+        <p className="text-sm font-medium text-(--text-primary) mb-4">
           下方哪一句属于本篇诗文？
         </p>
 
@@ -178,17 +178,17 @@ export const PoemMatchView: React.FC<PoemMatchViewProps> = ({
             const isUserChoice = selectedOption === opt;
 
             let btnStyle =
-              'bg-[var(--bg-canvas)] border-[var(--border-hairline)] text-[var(--text-primary)] hover:border-[var(--accent)]';
+              'bg-(--bg-canvas) border-(--border-hairline) text-(--text-primary) hover:border-(--accent)';
             if (hasPicked) {
               if (isCorrectOpt) {
                 btnStyle =
-                  'bg-[var(--success-soft)] border-[var(--success)] text-[var(--success)] font-medium';
+                  'bg-(--success-soft) border-(--success) text-(--success) font-medium';
               } else if (isUserChoice && !isCorrectOpt) {
                 btnStyle =
-                  'bg-[var(--danger-soft)] border-[var(--danger)] text-[var(--danger)]';
+                  'bg-(--danger-soft) border-(--danger) text-(--danger)';
               } else {
                 btnStyle =
-                  'bg-[var(--bg-canvas)] border-[var(--border-hairline)] text-[var(--text-muted)] opacity-65';
+                  'bg-(--bg-canvas) border-(--border-hairline) text-(--text-muted) opacity-65';
               }
             }
 
@@ -198,7 +198,7 @@ export const PoemMatchView: React.FC<PoemMatchViewProps> = ({
                 type="button"
                 disabled={hasPicked}
                 onClick={() => setSelectedOption(opt)}
-                className={`w-full min-h-[50px] px-4 py-3 rounded-xl border text-left font-poetry text-[15px] sm:text-base transition-colors flex items-center justify-between gap-3 ${btnStyle} ${
+                className={`w-full min-h-12.5 px-4 py-3 rounded-xl border text-left font-poetry text-[15px] sm:text-base transition-colors flex items-center justify-between gap-3 ${btnStyle} ${
                   hasPicked ? 'cursor-default' : 'cursor-pointer'
                 }`}
               >
@@ -212,12 +212,12 @@ export const PoemMatchView: React.FC<PoemMatchViewProps> = ({
         </div>
 
         {hasPicked && (
-          <div className="mt-5 pt-4 border-t border-[var(--border-hairline)] space-y-4">
+          <div className="mt-5 pt-4 border-t border-(--border-hairline) space-y-4">
             <div
               className={`rounded-xl p-3.5 text-sm ${
                 isMatched
-                  ? 'bg-[var(--success-soft)] text-[var(--success)]'
-                  : 'bg-[var(--danger-soft)] text-[var(--danger)]'
+                  ? 'bg-(--success-soft) text-(--success)'
+                  : 'bg-(--danger-soft) text-(--danger)'
               }`}
             >
               {isMatched ? (
@@ -236,7 +236,7 @@ export const PoemMatchView: React.FC<PoemMatchViewProps> = ({
               <button
                 type="button"
                 onClick={handleNextRound}
-                className="min-h-[44px] inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-medium bg-[var(--accent)] text-[var(--accent-text)] hover:bg-[var(--accent-hover)] transition-colors cursor-pointer"
+                className="min-h-11 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-medium bg-(--accent) text-(--accent-text) hover:bg-(--accent-hover) transition-colors cursor-pointer"
               >
                 <RefreshCw className="w-4 h-4 shrink-0" />
                 再来一组
@@ -244,7 +244,7 @@ export const PoemMatchView: React.FC<PoemMatchViewProps> = ({
               <button
                 type="button"
                 onClick={onBackToRead}
-                className="min-h-[44px] inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-medium bg-[var(--bg-subtle)] text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors cursor-pointer"
+                className="min-h-11 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-medium bg-(--bg-subtle) text-(--text-primary) hover:bg-(--bg-hover) transition-colors cursor-pointer"
               >
                 返回阅览
               </button>

@@ -27,14 +27,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
     <div className="space-y-10 pb-8">
       {/* Top Slogan & Editorial Hero */}
       <section className="pt-2 md:pt-4">
-        <div className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] p-6 md:p-8">
-          <p className="text-xs text-[var(--text-muted)] tracking-widest">
+        <div className="rounded-2xl bg-(--bg-surface) border border-(--border-hairline) p-6 md:p-8">
+          <p className="text-xs text-(--text-muted) tracking-widest">
             忆序古诗 · 整理阅览
           </p>
-          <h1 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-semibold font-poetry tracking-wide text-[var(--text-primary)] [text-wrap:balance]">
+          <h1 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-semibold font-poetry tracking-wide text-(--text-primary) text-balance">
             集诗成序，静以忆之
           </h1>
-          <p className="mt-3 max-w-2xl text-sm md:text-base leading-relaxed text-[var(--text-secondary)]">
+          <p className="mt-3 max-w-2xl text-sm md:text-base leading-relaxed text-(--text-secondary)">
             按心意编排专属诗文序列，于案头静心品读回味，随心收存喜爱篇目。
           </p>
 
@@ -44,20 +44,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <button
               type="button"
               onClick={onOpenLastRead}
-              className="group text-left rounded-2xl bg-[var(--bg-canvas)] border border-[var(--border-hairline)] p-5 hover:border-[var(--accent)] transition-colors cursor-pointer min-h-[112px] flex flex-col justify-between"
+              className="group text-left rounded-2xl bg-(--bg-canvas) border border-(--border-hairline) p-5 hover:border-(--accent) transition-colors cursor-pointer min-h-28 flex flex-col justify-between"
             >
               <div className="flex items-center justify-between gap-3">
-                <span className="inline-flex items-center gap-2 text-xs font-medium text-[var(--accent)]">
+                <span className="inline-flex items-center gap-2 text-xs font-medium text-(--accent)">
                   <BookOpen className="w-4 h-4 shrink-0" />
                   上次阅览
                 </span>
-                <ArrowRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--accent)] group-hover:translate-x-0.5 transition-transform shrink-0" />
+                <ArrowRight className="w-4 h-4 text-(--text-muted) group-hover:text-(--accent) group-hover:translate-x-0.5 transition-transform shrink-0" />
               </div>
               <div className="mt-3">
-                <div className="text-base font-semibold font-poetry text-[var(--text-primary)] truncate">
+                <div className="text-base font-semibold font-poetry text-(--text-primary) truncate">
                   {lastPoem.title}
                 </div>
-                <div className="mt-1 text-xs text-[var(--text-muted)] truncate">
+                <div className="mt-1 text-xs text-(--text-muted) truncate">
                   {lastPoem.dynasty} · {lastPoem.author} · {lastRead.context.name}
                 </div>
               </div>
@@ -67,20 +67,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <button
               type="button"
               onClick={onGoCustomLists}
-              className="group text-left rounded-2xl bg-[var(--bg-canvas)] border border-[var(--border-hairline)] p-5 hover:border-[var(--accent)] transition-colors cursor-pointer min-h-[112px] flex flex-col justify-between"
+              className="group text-left rounded-2xl bg-(--bg-canvas) border border-(--border-hairline) p-5 hover:border-(--accent) transition-colors cursor-pointer min-h-28 flex flex-col justify-between"
             >
               <div className="flex items-center justify-between gap-3">
-                <span className="inline-flex items-center gap-2 text-xs font-medium text-[var(--accent)]">
+                <span className="inline-flex items-center gap-2 text-xs font-medium text-(--accent)">
                   <ListOrdered className="w-4 h-4 shrink-0" />
                   我的清单
                 </span>
-                <ArrowRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--accent)] group-hover:translate-x-0.5 transition-transform shrink-0" />
+                <ArrowRight className="w-4 h-4 text-(--text-muted) group-hover:text-(--accent) group-hover:translate-x-0.5 transition-transform shrink-0" />
               </div>
               <div className="mt-3">
-                <div className="text-base font-semibold text-[var(--text-primary)] truncate">
+                <div className="text-base font-semibold text-(--text-primary) truncate">
                   自建有序诗单
                 </div>
-                <div className="mt-1 text-xs text-[var(--text-muted)] truncate tabular-nums">
+                <div className="mt-1 text-xs text-(--text-muted) truncate tabular-nums">
                   {userLists.length > 0
                     ? `已建 ${userLists.length} 份清单 · 可自由编排顺序`
                     : '新建专属清单 · 自由收录编排'}
@@ -92,20 +92,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <button
               type="button"
               onClick={() => onGoBuiltinCollections()}
-              className="group text-left rounded-2xl bg-[var(--bg-canvas)] border border-[var(--border-hairline)] p-5 hover:border-[var(--accent)] transition-colors cursor-pointer min-h-[112px] flex flex-col justify-between"
+              className="group text-left rounded-2xl bg-(--bg-canvas) border border-(--border-hairline) p-5 hover:border-(--accent) transition-colors cursor-pointer min-h-28 flex flex-col justify-between"
             >
               <div className="flex items-center justify-between gap-3">
-                <span className="inline-flex items-center gap-2 text-xs font-medium text-[var(--accent)]">
+                <span className="inline-flex items-center gap-2 text-xs font-medium text-(--accent)">
                   <Compass className="w-4 h-4 shrink-0" />
                   精选合集
                 </span>
-                <ArrowRight className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--accent)] group-hover:translate-x-0.5 transition-transform shrink-0" />
+                <ArrowRight className="w-4 h-4 text-(--text-muted) group-hover:text-(--accent) group-hover:translate-x-0.5 transition-transform shrink-0" />
               </div>
               <div className="mt-3">
-                <div className="text-base font-semibold text-[var(--text-primary)] truncate">
+                <div className="text-base font-semibold text-(--text-primary) truncate">
                   内置只读诗文选辑
                 </div>
-                <div className="mt-1 text-xs text-[var(--text-muted)] truncate">
+                <div className="mt-1 text-xs text-(--text-muted) truncate">
                   唐诗选辑 · 宋词选辑
                 </div>
               </div>
@@ -117,13 +117,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* Built-in Collections Preview */}
       <section>
         <div className="flex items-baseline justify-between gap-4 mb-4">
-          <h2 className="text-lg font-semibold text-[var(--text-primary)]">
+          <h2 className="text-lg font-semibold text-(--text-primary)">
             精选合集一览
           </h2>
           <button
             type="button"
             onClick={() => onGoBuiltinCollections()}
-            className="min-h-[44px] px-2 text-sm text-[var(--accent)] hover:underline whitespace-nowrap shrink-0 cursor-pointer"
+            className="min-h-11 px-2 text-sm text-(--accent) hover:underline whitespace-nowrap shrink-0 cursor-pointer"
           >
             进入清单库
           </button>
@@ -135,11 +135,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
             return (
               <div
                 key={set.setId}
-                className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] overflow-hidden flex flex-col"
+                className="rounded-2xl bg-(--bg-surface) border border-(--border-hairline) overflow-hidden flex flex-col"
               >
                 <div
                   onClick={() => onGoBuiltinCollections(set.setId)}
-                  className="aspect-[4/3] w-full overflow-hidden bg-[var(--bg-subtle)] cursor-pointer"
+                  className="aspect-4/3 w-full overflow-hidden bg-(--bg-subtle) cursor-pointer"
                 >
                   <ArtworkImage
                     src={set.coverImage}
@@ -151,19 +151,19 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 <div className="p-5 flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex items-baseline justify-between gap-2">
-                      <h3 className="text-base font-semibold font-poetry text-[var(--text-primary)]">
+                      <h3 className="text-base font-semibold font-poetry text-(--text-primary)">
                         {set.setName}
                       </h3>
-                      <span className="text-xs text-[var(--text-muted)] tabular-nums shrink-0">
+                      <span className="text-xs text-(--text-muted) tabular-nums shrink-0">
                         {set.poems.length} 篇
                       </span>
                     </div>
-                    <p className="mt-1.5 text-xs text-[var(--text-secondary)]">
+                    <p className="mt-1.5 text-xs text-(--text-secondary)">
                       {set.subtitle}
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-[var(--border-hairline)] flex items-center justify-between gap-2">
+                  <div className="mt-4 pt-3 border-t border-(--border-hairline) flex items-center justify-between gap-2">
                     <button
                       type="button"
                       onClick={() =>
@@ -173,14 +173,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
                           name: set.setName,
                         })
                       }
-                      className="min-h-[44px] text-xs text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors truncate cursor-pointer"
+                      className="min-h-11 text-xs text-(--text-secondary) hover:text-(--accent) transition-colors truncate cursor-pointer"
                     >
                       试读：{firstPoem.title}
                     </button>
                     <button
                       type="button"
                       onClick={() => onGoBuiltinCollections(set.setId)}
-                      className="min-h-[44px] px-3 rounded-lg text-xs font-medium text-[var(--accent)] bg-[var(--accent-soft)] hover:opacity-90 transition-opacity whitespace-nowrap shrink-0 cursor-pointer"
+                      className="min-h-11 px-3 rounded-lg text-xs font-medium text-(--accent) bg-(--accent-soft) hover:opacity-90 transition-opacity whitespace-nowrap shrink-0 cursor-pointer"
                     >
                       浏览目录
                     </button>
@@ -194,7 +194,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
       {/* Bottom Offline Note */}
       <footer className="pt-2 text-center">
-        <p className="text-xs text-[var(--text-muted)]">
+        <p className="text-xs text-(--text-muted)">
           全部内容保存在本机
         </p>
       </footer>

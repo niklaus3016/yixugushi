@@ -89,36 +89,36 @@ export const MyView: React.FC<MyViewProps> = ({
     <div className="space-y-6 pb-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
         {/* 我的收藏 */}
-        <section className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] overflow-hidden">
-          <div className="px-5 py-4 border-b border-[var(--border-hairline)] flex items-center justify-between gap-2">
-            <h2 className="text-base font-semibold text-[var(--text-primary)]">
+        <section className="rounded-2xl bg-(--bg-surface) border border-(--border-hairline) overflow-hidden">
+          <div className="px-5 py-4 border-b border-(--border-hairline) flex items-center justify-between gap-2">
+            <h2 className="text-base font-semibold text-(--text-primary)">
               我的收藏
             </h2>
-            <span className="text-xs text-[var(--text-muted)] tabular-nums">
+            <span className="text-xs text-(--text-muted) tabular-nums">
               {starredPoems.length} 篇
             </span>
           </div>
 
           {starredPoems.length === 0 ? (
-            <div className="p-8 text-center text-sm text-[var(--text-muted)]">
+            <div className="p-8 text-center text-sm text-(--text-muted)">
               暂无收藏诗文，可在阅览时点击星标收存
             </div>
           ) : (
-            <div className="divide-y divide-[var(--border-hairline)]">
+            <div className="divide-y divide-(--border-hairline)">
               {starredPoems.map((poem) => (
                 <div
                   key={poem.poemId}
-                  className="px-5 min-h-[58px] flex items-center justify-between gap-3 hover:bg-[var(--bg-subtle)] transition-colors"
+                  className="px-5 min-h-14.5 flex items-center justify-between gap-3 hover:bg-(--bg-subtle) transition-colors"
                 >
                   <button
                     type="button"
                     onClick={() => onOpenPoem(poem.poemId, starContext)}
                     className="flex-1 min-w-0 py-3 text-left cursor-pointer"
                   >
-                    <div className="text-sm font-medium font-poetry text-[var(--text-primary)] truncate">
+                    <div className="text-sm font-medium font-poetry text-(--text-primary) truncate">
                       {poem.title}
                     </div>
-                    <div className="text-xs text-[var(--text-muted)] mt-0.5 truncate">
+                    <div className="text-xs text-(--text-muted) mt-0.5 truncate">
                       {poem.dynasty} · {poem.author}
                     </div>
                   </button>
@@ -127,11 +127,11 @@ export const MyView: React.FC<MyViewProps> = ({
                       type="button"
                       onClick={() => onToggleStar(poem.poemId)}
                       aria-label="取消收藏"
-                      className="min-h-[44px] min-w-[44px] flex items-center justify-center text-[var(--accent)] hover:opacity-75 cursor-pointer"
+                      className="min-h-11 min-w-11 flex items-center justify-center text-(--accent) hover:opacity-75 cursor-pointer"
                     >
                       <Star className="w-4 h-4 fill-current" />
                     </button>
-                    <ChevronRight className="w-4 h-4 text-[var(--text-muted)] pointer-events-none" />
+                    <ChevronRight className="w-4 h-4 text-(--text-muted) pointer-events-none" />
                   </div>
                 </div>
               ))}
@@ -140,18 +140,18 @@ export const MyView: React.FC<MyViewProps> = ({
         </section>
 
         {/* 全局设置（已移除字体设置） */}
-        <section className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] overflow-hidden">
-          <div className="px-5 py-4 border-b border-[var(--border-hairline)]">
-            <h2 className="text-base font-semibold text-[var(--text-primary)]">
+        <section className="rounded-2xl bg-(--bg-surface) border border-(--border-hairline) overflow-hidden">
+          <div className="px-5 py-4 border-b border-(--border-hairline)">
+            <h2 className="text-base font-semibold text-(--text-primary)">
               全局设置
             </h2>
           </div>
 
-          <div className="divide-y divide-[var(--border-hairline)]">
+          <div className="divide-y divide-(--border-hairline)">
             {/* 默认阅览主题 */}
             <div className="px-5 py-4 flex items-center justify-between gap-4">
-              <span className="text-sm text-[var(--text-primary)]">默认阅览主题</span>
-              <div className="inline-flex items-center gap-1 p-1 rounded-lg bg-[var(--bg-subtle)]">
+              <span className="text-sm text-(--text-primary)">默认阅览主题</span>
+              <div className="inline-flex items-center gap-1 p-1 rounded-lg bg-(--bg-subtle)">
                 {(
                   [
                     { id: 'day', label: '日间' },
@@ -163,10 +163,10 @@ export const MyView: React.FC<MyViewProps> = ({
                     key={t.id}
                     type="button"
                     onClick={() => onUpdateConfig({ theme: t.id })}
-                    className={`min-h-[36px] px-3 rounded-md text-xs font-medium transition-colors cursor-pointer whitespace-nowrap ${
+                    className={`min-h-9 px-3 rounded-md text-xs font-medium transition-colors cursor-pointer whitespace-nowrap ${
                       config.theme === t.id
-                        ? 'bg-[var(--bg-surface)] text-[var(--text-primary)] shadow-xs'
-                        : 'text-[var(--text-secondary)]'
+                        ? 'bg-(--bg-surface) text-(--text-primary) shadow-xs'
+                        : 'text-(--text-secondary)'
                     }`}
                   >
                     {t.label}
@@ -178,10 +178,10 @@ export const MyView: React.FC<MyViewProps> = ({
             {/* 选句补诗按钮开关 */}
             <div className="px-5 py-4 flex items-center justify-between gap-4">
               <div>
-                <div className="text-sm text-[var(--text-primary)]">
+                <div className="text-sm text-(--text-primary)">
                   选句补诗按钮
                 </div>
-                <div className="text-xs text-[var(--text-muted)] mt-0.5">
+                <div className="text-xs text-(--text-muted) mt-0.5">
                   在阅览详情页展示「选句补诗」闲趣入口
                 </div>
               </div>
@@ -194,8 +194,8 @@ export const MyView: React.FC<MyViewProps> = ({
                 }
                 className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ${
                   config.showQuizBtn
-                    ? 'bg-[var(--accent)]'
-                    : 'bg-[var(--bg-subtle)] border-[var(--border-hairline)]'
+                    ? 'bg-(--accent)'
+                    : 'bg-(--bg-subtle) border-(--border-hairline)'
                 }`}
               >
                 <span
@@ -209,19 +209,19 @@ export const MyView: React.FC<MyViewProps> = ({
             {/* 朗读默认语速 */}
             {speechSupported && (
               <div className="px-5 py-4 flex items-center justify-between gap-4">
-                <span className="text-sm text-[var(--text-primary)]">
+                <span className="text-sm text-(--text-primary)">
                   朗读默认语速
                 </span>
-                <div className="inline-flex items-center gap-1 p-1 rounded-lg bg-[var(--bg-subtle)]">
+                <div className="inline-flex items-center gap-1 p-1 rounded-lg bg-(--bg-subtle)">
                   {[0.75, 1, 1.25, 1.5].map((speed) => (
                     <button
                       key={speed}
                       type="button"
                       onClick={() => onUpdateConfig({ audioSpeed: speed })}
-                      className={`min-h-[36px] px-2.5 rounded-md text-xs font-medium tabular-nums transition-colors cursor-pointer ${
+                      className={`min-h-9 px-2.5 rounded-md text-xs font-medium tabular-nums transition-colors cursor-pointer ${
                         config.audioSpeed === speed
-                          ? 'bg-[var(--bg-surface)] text-[var(--text-primary)] shadow-xs'
-                          : 'text-[var(--text-secondary)]'
+                          ? 'bg-(--bg-surface) text-(--text-primary) shadow-xs'
+                          : 'text-(--text-secondary)'
                       }`}
                     >
                       {speed}x
@@ -241,101 +241,101 @@ export const MyView: React.FC<MyViewProps> = ({
           <button
             type="button"
             onClick={() => setDocModal('agreement')}
-            className="w-full rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] px-5 py-4 min-h-[60px] flex items-center justify-between gap-4 text-left hover:border-[var(--accent)] transition-colors cursor-pointer"
+            className="w-full rounded-2xl bg-(--bg-surface) border border-(--border-hairline) px-5 py-4 min-h-15 flex items-center justify-between gap-4 text-left hover:border-(--accent) transition-colors cursor-pointer"
           >
             <div className="flex items-center gap-3 min-w-0">
-              <FileText className="w-5 h-5 text-[var(--accent)] shrink-0" />
+              <FileText className="w-5 h-5 text-(--accent) shrink-0" />
               <div className="min-w-0">
-                <div className="text-sm font-semibold text-[var(--text-primary)]">
+                <div className="text-sm font-semibold text-(--text-primary)">
                   用户服务协议
                 </div>
-                <div className="text-xs text-[var(--text-muted)] mt-0.5 truncate">
+                <div className="text-xs text-(--text-muted) mt-0.5 truncate">
                   查看《忆序古诗》用户服务协议全文
                 </div>
               </div>
             </div>
-            <ChevronRight className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
+            <ChevronRight className="w-4 h-4 text-(--text-muted) shrink-0" />
           </button>
 
           {/* 隐私政策 */}
           <button
             type="button"
             onClick={() => setDocModal('privacy')}
-            className="w-full rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] px-5 py-4 min-h-[60px] flex items-center justify-between gap-4 text-left hover:border-[var(--accent)] transition-colors cursor-pointer"
+            className="w-full rounded-2xl bg-(--bg-surface) border border-(--border-hairline) px-5 py-4 min-h-15 flex items-center justify-between gap-4 text-left hover:border-(--accent) transition-colors cursor-pointer"
           >
             <div className="flex items-center gap-3 min-w-0">
-              <ShieldCheck className="w-5 h-5 text-[var(--accent)] shrink-0" />
+              <ShieldCheck className="w-5 h-5 text-(--accent) shrink-0" />
               <div className="min-w-0">
-                <div className="text-sm font-semibold text-[var(--text-primary)]">
+                <div className="text-sm font-semibold text-(--text-primary)">
                   隐私政策
                 </div>
-                <div className="text-xs text-[var(--text-muted)] mt-0.5 truncate">
+                <div className="text-xs text-(--text-muted) mt-0.5 truncate">
                   查看完整的《忆序古诗》隐私保护说明
                 </div>
               </div>
             </div>
-            <ChevronRight className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
+            <ChevronRight className="w-4 h-4 text-(--text-muted) shrink-0" />
           </button>
 
           {/* 本机数据重置 */}
-          <section className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] overflow-hidden">
-            <div className="px-5 py-4 border-b border-[var(--border-hairline)]">
-              <h2 className="text-base font-semibold text-[var(--text-primary)]">
+          <section className="rounded-2xl bg-(--bg-surface) border border-(--border-hairline) overflow-hidden">
+            <div className="px-5 py-4 border-b border-(--border-hairline)">
+              <h2 className="text-base font-semibold text-(--text-primary)">
                 本机数据重置
               </h2>
             </div>
 
-            <div className="divide-y divide-[var(--border-hairline)]">
+            <div className="divide-y divide-(--border-hairline)">
               <button
                 type="button"
                 disabled={userListsCount === 0}
                 onClick={() => setConfirmAction({ type: 'clearAllLists' })}
-                className="w-full px-5 py-4 min-h-[56px] flex items-center justify-between gap-4 text-left hover:bg-[var(--bg-subtle)] disabled:opacity-45 transition-colors cursor-pointer disabled:cursor-default"
+                className="w-full px-5 py-4 min-h-14 flex items-center justify-between gap-4 text-left hover:bg-(--bg-subtle) disabled:opacity-45 transition-colors cursor-pointer disabled:cursor-default"
               >
                 <div>
-                  <div className="text-sm font-medium text-[var(--danger)]">
+                  <div className="text-sm font-medium text-(--danger)">
                     清空全部自建清单
                   </div>
-                  <div className="text-xs text-[var(--text-muted)] mt-0.5 tabular-nums">
+                  <div className="text-xs text-(--text-muted) mt-0.5 tabular-nums">
                     当前共有 {userListsCount} 份自建清单
                   </div>
                 </div>
-                <ChevronRight className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
+                <ChevronRight className="w-4 h-4 text-(--text-muted) shrink-0" />
               </button>
 
               <button
                 type="button"
                 disabled={starredPoems.length === 0}
                 onClick={() => setConfirmAction({ type: 'clearAllMarks' })}
-                className="w-full px-5 py-4 min-h-[56px] flex items-center justify-between gap-4 text-left hover:bg-[var(--bg-subtle)] disabled:opacity-45 transition-colors cursor-pointer disabled:cursor-default"
+                className="w-full px-5 py-4 min-h-14 flex items-center justify-between gap-4 text-left hover:bg-(--bg-subtle) disabled:opacity-45 transition-colors cursor-pointer disabled:cursor-default"
               >
                 <div>
-                  <div className="text-sm font-medium text-[var(--danger)]">
+                  <div className="text-sm font-medium text-(--danger)">
                     清空全部收藏标记
                   </div>
-                  <div className="text-xs text-[var(--text-muted)] mt-0.5 tabular-nums">
+                  <div className="text-xs text-(--text-muted) mt-0.5 tabular-nums">
                     当前共收藏 {starredPoems.length} 篇
                   </div>
                 </div>
-                <ChevronRight className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
+                <ChevronRight className="w-4 h-4 text-(--text-muted) shrink-0" />
               </button>
             </div>
           </section>
         </div>
 
-        <section className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] p-5 space-y-3">
+        <section className="rounded-2xl bg-(--bg-surface) border border-(--border-hairline) p-5 space-y-3">
           <div className="flex items-baseline justify-between gap-2">
-            <h2 className="text-base font-semibold text-[var(--text-primary)]">
+            <h2 className="text-base font-semibold text-(--text-primary)">
               关于忆序古诗
             </h2>
-            <span className="text-xs text-[var(--text-muted)] tabular-nums">
+            <span className="text-xs text-(--text-muted) tabular-nums">
               {APP_VERSION}
             </span>
           </div>
-          <p className="text-xs leading-relaxed text-[var(--text-secondary)]">
+          <p className="text-xs leading-relaxed text-(--text-secondary)">
             诗文素材来源：内置选辑整理自公开传世古典诗文文献，仅作品读与整理之用。
           </p>
-          <p className="text-xs leading-relaxed text-[var(--text-secondary)]">
+          <p className="text-xs leading-relaxed text-(--text-secondary)">
             隐私说明：本应用为诗词整理工具，不会收集、上传任何用户输入内容与个人信息，自建清单与收藏仅保存在本机本地。
           </p>
         </section>

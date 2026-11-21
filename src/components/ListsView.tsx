@@ -271,7 +271,7 @@ export const ListsView: React.FC<ListsViewProps> = ({
       {/* Top Category Segmented Control & Create Action */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div
-          className="inline-flex items-center gap-1 p-1 rounded-xl bg-[var(--bg-subtle)] border border-[var(--border-hairline)]"
+          className="inline-flex items-center gap-1 p-1 rounded-xl bg-(--bg-subtle) border border-(--border-hairline)"
           role="tablist"
           aria-label="清单分类"
         >
@@ -280,10 +280,10 @@ export const ListsView: React.FC<ListsViewProps> = ({
             role="tab"
             aria-selected={category === 'custom'}
             onClick={() => handleCategoryChange('custom')}
-            className={`min-h-[40px] px-4 py-1.5 rounded-lg text-sm font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+            className={`min-h-10 px-4 py-1.5 rounded-lg text-sm font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
               category === 'custom'
-                ? 'bg-[var(--bg-surface)] text-[var(--text-primary)] shadow-xs'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                ? 'bg-(--bg-surface) text-(--text-primary) shadow-xs'
+                : 'text-(--text-secondary) hover:text-(--text-primary)'
             }`}
           >
             自建清单
@@ -293,10 +293,10 @@ export const ListsView: React.FC<ListsViewProps> = ({
             role="tab"
             aria-selected={category === 'builtin'}
             onClick={() => handleCategoryChange('builtin')}
-            className={`min-h-[40px] px-4 py-1.5 rounded-lg text-sm font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+            className={`min-h-10 px-4 py-1.5 rounded-lg text-sm font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
               category === 'builtin'
-                ? 'bg-[var(--bg-surface)] text-[var(--text-primary)] shadow-xs'
-                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                ? 'bg-(--bg-surface) text-(--text-primary) shadow-xs'
+                : 'text-(--text-secondary) hover:text-(--text-primary)'
             }`}
           >
             内置合集
@@ -307,7 +307,7 @@ export const ListsView: React.FC<ListsViewProps> = ({
           <button
             type="button"
             onClick={openCreateModal}
-            className="min-h-[44px] inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium bg-[var(--accent)] text-[var(--accent-text)] hover:bg-[var(--accent-hover)] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            className="min-h-11 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium bg-(--accent) text-(--accent-text) hover:bg-(--accent-hover) transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             <Plus className="w-4 h-4 shrink-0" />
             新建清单
@@ -325,24 +325,24 @@ export const ListsView: React.FC<ListsViewProps> = ({
         >
           {category === 'custom' ? (
             userLists.length === 0 ? (
-              <div className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] p-6 text-center">
-                <p className="text-sm text-[var(--text-secondary)]">
+              <div className="rounded-2xl bg-(--bg-surface) border border-(--border-hairline) p-6 text-center">
+                <p className="text-sm text-(--text-secondary)">
                   尚未建立自建清单
                 </p>
-                <p className="mt-1 text-xs text-[var(--text-muted)]">
+                <p className="mt-1 text-xs text-(--text-muted)">
                   可新建专属诗单，按心意归集与编排顺序
                 </p>
                 <button
                   type="button"
                   onClick={openCreateModal}
-                  className="mt-4 min-h-[44px] inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium bg-[var(--accent)] text-[var(--accent-text)] hover:bg-[var(--accent-hover)] transition-colors cursor-pointer"
+                  className="mt-4 min-h-11 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium bg-(--accent) text-(--accent-text) hover:bg-(--accent-hover) transition-colors cursor-pointer"
                 >
                   <Plus className="w-4 h-4" />
                   新建清单
                 </button>
               </div>
             ) : (
-              <div className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] divide-y divide-[var(--border-hairline)] overflow-hidden">
+              <div className="rounded-2xl bg-(--bg-surface) border border-(--border-hairline) divide-y divide-(--border-hairline) overflow-hidden">
                 {userLists.map((list) => {
                   const isActive = activeCustomList?.listId === list.listId;
                   return (
@@ -354,29 +354,29 @@ export const ListsView: React.FC<ListsViewProps> = ({
                         setSearchQuery('');
                         setMobileShowDetail(true);
                       }}
-                      className={`w-full text-left px-5 py-4 min-h-[60px] flex items-center justify-between gap-3 transition-colors cursor-pointer ${
+                      className={`w-full text-left px-5 py-4 min-h-15 flex items-center justify-between gap-3 transition-colors cursor-pointer ${
                         isActive
-                          ? 'bg-[var(--accent-soft)]'
-                          : 'hover:bg-[var(--bg-subtle)]'
+                          ? 'bg-(--accent-soft)'
+                          : 'hover:bg-(--bg-subtle)'
                       }`}
                     >
                       <div className="min-w-0 flex-1">
-                        <div className="text-sm font-semibold text-[var(--text-primary)] truncate">
+                        <div className="text-sm font-semibold text-(--text-primary) truncate">
                           {list.listName}
                         </div>
-                        <div className="mt-0.5 text-xs text-[var(--text-muted)] truncate tabular-nums">
+                        <div className="mt-0.5 text-xs text-(--text-muted) truncate tabular-nums">
                           {list.desc ? `${list.desc} · ` : ''}
                           {list.sortIds.length} 篇
                         </div>
                       </div>
-                      <ChevronRight className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
+                      <ChevronRight className="w-4 h-4 text-(--text-muted) shrink-0" />
                     </button>
                   );
                 })}
               </div>
             )
           ) : (
-            <div className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] divide-y divide-[var(--border-hairline)] overflow-hidden">
+            <div className="rounded-2xl bg-(--bg-surface) border border-(--border-hairline) divide-y divide-(--border-hairline) overflow-hidden">
               {BUILTIN_SETS.map((set) => {
                 const isActive = activeBuiltinSet?.setId === set.setId;
                 return (
@@ -388,21 +388,21 @@ export const ListsView: React.FC<ListsViewProps> = ({
                       setSearchQuery('');
                       setMobileShowDetail(true);
                     }}
-                    className={`w-full text-left px-5 py-4 min-h-[60px] flex items-center justify-between gap-3 transition-colors cursor-pointer ${
+                    className={`w-full text-left px-5 py-4 min-h-15 flex items-center justify-between gap-3 transition-colors cursor-pointer ${
                       isActive
-                        ? 'bg-[var(--accent-soft)]'
-                        : 'hover:bg-[var(--bg-subtle)]'
+                        ? 'bg-(--accent-soft)'
+                        : 'hover:bg-(--bg-subtle)'
                     }`}
                   >
                     <div className="min-w-0 flex-1">
-                      <div className="text-sm font-semibold font-poetry text-[var(--text-primary)] truncate">
+                      <div className="text-sm font-semibold font-poetry text-(--text-primary) truncate">
                         {set.setName}
                       </div>
-                      <div className="mt-0.5 text-xs text-[var(--text-muted)] truncate tabular-nums">
+                      <div className="mt-0.5 text-xs text-(--text-muted) truncate tabular-nums">
                         {set.subtitle} · {set.poems.length} 篇
                       </div>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
+                    <ChevronRight className="w-4 h-4 text-(--text-muted) shrink-0" />
                   </button>
                 );
               })}
@@ -419,19 +419,19 @@ export const ListsView: React.FC<ListsViewProps> = ({
           }`}
         >
           {(category === 'custom' && !activeCustomList) ? (
-            <div className="hidden lg:flex rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] p-10 flex-col items-center justify-center text-center">
-              <p className="text-sm text-[var(--text-secondary)]">
+            <div className="hidden lg:flex rounded-2xl bg-(--bg-surface) border border-(--border-hairline) p-10 flex-col items-center justify-center text-center">
+              <p className="text-sm text-(--text-secondary)">
                 暂无自建清单，点击右上角「新建清单」开始编排
               </p>
             </div>
           ) : (
-            <div className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] overflow-hidden">
+            <div className="rounded-2xl bg-(--bg-surface) border border-(--border-hairline) overflow-hidden">
               {/* Mobile Back Button */}
-              <div className="lg:hidden px-4 pt-3 pb-1 border-b border-[var(--border-hairline)]">
+              <div className="lg:hidden px-4 pt-3 pb-1 border-b border-(--border-hairline)">
                 <button
                   type="button"
                   onClick={() => setMobileShowDetail(false)}
-                  className="min-h-[44px] inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)] cursor-pointer"
+                  className="min-h-11 inline-flex items-center gap-1.5 text-sm font-medium text-(--accent) cursor-pointer"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   返回清单目录
@@ -439,15 +439,15 @@ export const ListsView: React.FC<ListsViewProps> = ({
               </div>
 
               {/* List Header */}
-              <div className="p-5 md:p-6 border-b border-[var(--border-hairline)]">
+              <div className="p-5 md:p-6 border-b border-(--border-hairline)">
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3.5">
                   <div className="min-w-0">
-                    <h2 className="text-lg md:text-xl font-semibold font-poetry text-[var(--text-primary)]">
+                    <h2 className="text-lg md:text-xl font-semibold font-poetry text-(--text-primary)">
                       {category === 'custom'
                         ? activeCustomList?.listName
                         : activeBuiltinSet?.setName}
                     </h2>
-                    <p className="mt-1 text-xs text-[var(--text-muted)] tabular-nums">
+                    <p className="mt-1 text-xs text-(--text-muted) tabular-nums">
                       {category === 'custom' ? (
                         <>
                           {activeCustomList?.desc
@@ -468,7 +468,7 @@ export const ListsView: React.FC<ListsViewProps> = ({
                       <button
                         type="button"
                         onClick={openPicker}
-                        className="min-h-[44px] inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-medium bg-[var(--accent)] text-[var(--accent-text)] hover:bg-[var(--accent-hover)] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                        className="min-h-11 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-medium bg-(--accent) text-(--accent-text) hover:bg-(--accent-hover) transition-colors whitespace-nowrap shrink-0 cursor-pointer"
                       >
                         <Plus className="w-3.5 h-3.5" />
                         添加诗文
@@ -477,7 +477,7 @@ export const ListsView: React.FC<ListsViewProps> = ({
                         type="button"
                         onClick={() => openEditModal(activeCustomList)}
                         aria-label="重命名或修改备注"
-                        className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-xl text-[var(--text-secondary)] bg-[var(--bg-subtle)] hover:bg-[var(--bg-hover)] transition-colors cursor-pointer"
+                        className="min-h-11 min-w-11 inline-flex items-center justify-center rounded-xl text-(--text-secondary) bg-(--bg-subtle) hover:bg-(--bg-hover) transition-colors cursor-pointer"
                       >
                         <Edit3 className="w-4 h-4" />
                       </button>
@@ -485,13 +485,13 @@ export const ListsView: React.FC<ListsViewProps> = ({
                         type="button"
                         onClick={() => setDeleteTarget(activeCustomList)}
                         aria-label="删除清单"
-                        className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-xl text-[var(--danger)] bg-[var(--danger-soft)] hover:opacity-90 transition-opacity cursor-pointer"
+                        className="min-h-11 min-w-11 inline-flex items-center justify-center rounded-xl text-(--danger) bg-(--danger-soft) hover:opacity-90 transition-opacity cursor-pointer"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
                     </div>
                   ) : (
-                    <div className="inline-flex items-center gap-1.5 text-xs text-[var(--text-muted)] py-2">
+                    <div className="inline-flex items-center gap-1.5 text-xs text-(--text-muted) py-2">
                       <Lock className="w-3.5 h-3.5" />
                       只读合集
                     </div>
@@ -500,20 +500,20 @@ export const ListsView: React.FC<ListsViewProps> = ({
 
                 {/* Local Search Box */}
                 <div className="mt-4 relative">
-                  <Search className="w-4 h-4 text-[var(--text-muted)] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <Search className="w-4 h-4 text-(--text-muted) absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="在当前清单内检索标题或作者"
-                    className="w-full min-h-[44px] pl-10 pr-10 py-2 rounded-xl text-sm bg-[var(--bg-canvas)] border border-[var(--border-hairline)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-hidden focus:border-[var(--accent)]"
+                    className="w-full min-h-11 pl-10 pr-10 py-2 rounded-xl text-sm bg-(--bg-canvas) border border-(--border-hairline) text-(--text-primary) placeholder:text-(--text-muted) focus:outline-hidden focus:border-(--accent)"
                   />
                   {searchQuery && (
                     <button
                       type="button"
                       onClick={() => setSearchQuery('')}
                       aria-label="清空检索"
-                      className="min-h-[40px] min-w-[40px] flex items-center justify-center absolute right-1 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
+                      className="min-h-10 min-w-10 flex items-center justify-center absolute right-1 top-1/2 -translate-y-1/2 text-(--text-muted) hover:text-(--text-primary) cursor-pointer"
                     >
                       <X className="w-4 h-4" />
                     </button>
@@ -524,7 +524,7 @@ export const ListsView: React.FC<ListsViewProps> = ({
               {/* Poems List Rows */}
               {filteredPoems.length === 0 ? (
                 <div className="p-10 text-center">
-                  <p className="text-sm text-[var(--text-secondary)]">
+                  <p className="text-sm text-(--text-secondary)">
                     {activePoems.length === 0
                       ? '此清单尚未收入诗文'
                       : '当前清单内未找到匹配的诗文'}
@@ -533,7 +533,7 @@ export const ListsView: React.FC<ListsViewProps> = ({
                     <button
                       type="button"
                       onClick={openPicker}
-                      className="mt-4 min-h-[44px] inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium bg-[var(--accent)] text-[var(--accent-text)] hover:bg-[var(--accent-hover)] transition-colors cursor-pointer"
+                      className="mt-4 min-h-11 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium bg-(--accent) text-(--accent-text) hover:bg-(--accent-hover) transition-colors cursor-pointer"
                     >
                       <Plus className="w-4 h-4" />
                       添加诗文
@@ -541,7 +541,7 @@ export const ListsView: React.FC<ListsViewProps> = ({
                   )}
                 </div>
               ) : (
-                <div className="divide-y divide-[var(--border-hairline)]">
+                <div className="divide-y divide-(--border-hairline)">
                   {filteredPoems.map((poem, idx) => {
                     const isDragging = draggingIndex === idx;
                     return (
@@ -550,10 +550,10 @@ export const ListsView: React.FC<ListsViewProps> = ({
                         ref={(el) => {
                           rowRefs.current[idx] = el;
                         }}
-                        className={`flex items-center gap-2 px-4 md:px-5 min-h-[60px] transition-colors ${
+                        className={`flex items-center gap-2 px-4 md:px-5 min-h-15 transition-colors ${
                           isDragging
-                            ? 'bg-[var(--accent-soft)]'
-                            : 'hover:bg-[var(--bg-subtle)]'
+                            ? 'bg-(--accent-soft)'
+                            : 'hover:bg-(--bg-subtle)'
                         }`}
                       >
                         {/* Drag Handle + Order Number for Custom Lists */}
@@ -566,13 +566,13 @@ export const ListsView: React.FC<ListsViewProps> = ({
                             onPointerCancel={handleDragPointerUp}
                             aria-label="拖拽调整顺序"
                             style={{ touchAction: 'none' }}
-                            className="min-h-[44px] min-w-[36px] flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-grab active:cursor-grabbing shrink-0"
+                            className="min-h-11 min-w-9 flex items-center justify-center text-(--text-muted) hover:text-(--text-primary) cursor-grab active:cursor-grabbing shrink-0"
                           >
                             <GripVertical className="w-4 h-4" />
                           </button>
                         )}
 
-                        <span className="w-7 text-xs text-[var(--text-muted)] tabular-nums shrink-0 text-center">
+                        <span className="w-7 text-xs text-(--text-muted) tabular-nums shrink-0 text-center">
                           {String(idx + 1).padStart(2, '0')}
                         </span>
 
@@ -587,10 +587,10 @@ export const ListsView: React.FC<ListsViewProps> = ({
                           className="flex-1 min-w-0 py-3 text-left flex items-center justify-between gap-3 cursor-pointer"
                         >
                           <div className="min-w-0">
-                            <div className="text-base font-medium font-poetry text-[var(--text-primary)] truncate">
+                            <div className="text-base font-medium font-poetry text-(--text-primary) truncate">
                               {poem.title}
                             </div>
-                            <div className="mt-0.5 text-xs text-[var(--text-muted)] truncate">
+                            <div className="mt-0.5 text-xs text-(--text-muted) truncate">
                               {poem.dynasty} · {poem.author}
                             </div>
                           </div>
@@ -606,7 +606,7 @@ export const ListsView: React.FC<ListsViewProps> = ({
                                   disabled={idx === 0}
                                   onClick={() => movePoem(idx, -1)}
                                   aria-label="上移一篇"
-                                  className="min-h-[44px] min-w-[36px] flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--text-primary)] disabled:opacity-25 cursor-pointer disabled:cursor-default"
+                                  className="min-h-11 min-w-9 flex items-center justify-center text-(--text-muted) hover:text-(--text-primary) disabled:opacity-25 cursor-pointer disabled:cursor-default"
                                 >
                                   <ArrowUp className="w-4 h-4" />
                                 </button>
@@ -615,7 +615,7 @@ export const ListsView: React.FC<ListsViewProps> = ({
                                   disabled={idx === filteredPoems.length - 1}
                                   onClick={() => movePoem(idx, 1)}
                                   aria-label="下移一篇"
-                                  className="min-h-[44px] min-w-[36px] flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--text-primary)] disabled:opacity-25 cursor-pointer disabled:cursor-default"
+                                  className="min-h-11 min-w-9 flex items-center justify-center text-(--text-muted) hover:text-(--text-primary) disabled:opacity-25 cursor-pointer disabled:cursor-default"
                                 >
                                   <ArrowDown className="w-4 h-4" />
                                 </button>
@@ -630,7 +630,7 @@ export const ListsView: React.FC<ListsViewProps> = ({
                                 )
                               }
                               aria-label="从清单移除"
-                              className="min-h-[44px] min-w-[36px] flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--danger)] transition-colors cursor-pointer"
+                              className="min-h-11 min-w-9 flex items-center justify-center text-(--text-muted) hover:text-(--danger) transition-colors cursor-pointer"
                             >
                               <X className="w-4 h-4" />
                             </button>
@@ -638,7 +638,7 @@ export const ListsView: React.FC<ListsViewProps> = ({
                         )}
 
                         {category === 'builtin' && (
-                          <ChevronRight className="w-4 h-4 text-[var(--text-muted)] shrink-0 pointer-events-none" />
+                          <ChevronRight className="w-4 h-4 text-(--text-muted) shrink-0 pointer-events-none" />
                         )}
                       </div>
                     );
@@ -661,14 +661,14 @@ export const ListsView: React.FC<ListsViewProps> = ({
           <form
             onSubmit={handleSaveListModal}
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-md rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] p-6 shadow-xl"
+            className="w-full max-w-md rounded-2xl bg-(--bg-surface) border border-(--border-hairline) p-6 shadow-xl"
           >
-            <h3 className="text-base font-semibold text-[var(--text-primary)]">
+            <h3 className="text-base font-semibold text-(--text-primary)">
               {listModalMode === 'create' ? '新建自建清单' : '编辑清单信息'}
             </h3>
             <div className="mt-4 space-y-4">
               <div>
-                <label className="block text-xs font-medium text-[var(--text-secondary)] mb-1.5">
+                <label className="block text-xs font-medium text-(--text-secondary) mb-1.5">
                   清单名称
                 </label>
                 <input
@@ -679,11 +679,11 @@ export const ListsView: React.FC<ListsViewProps> = ({
                   onChange={(e) => setModalName(e.target.value)}
                   placeholder="例如：月夜怀人集"
                   autoFocus
-                  className="w-full min-h-[44px] px-3.5 py-2 rounded-xl text-sm bg-[var(--bg-canvas)] border border-[var(--border-hairline)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-hidden focus:border-[var(--accent)]"
+                  className="w-full min-h-11 px-3.5 py-2 rounded-xl text-sm bg-(--bg-canvas) border border-(--border-hairline) text-(--text-primary) placeholder:text-(--text-muted) focus:outline-hidden focus:border-(--accent)"
                 />
               </div>
               <div>
-                <label className="block text-xs font-medium text-[var(--text-secondary)] mb-1.5">
+                <label className="block text-xs font-medium text-(--text-secondary) mb-1.5">
                   简短备注（可选）
                 </label>
                 <input
@@ -692,7 +692,7 @@ export const ListsView: React.FC<ListsViewProps> = ({
                   value={modalDesc}
                   onChange={(e) => setModalDesc(e.target.value)}
                   placeholder="随手记录收录缘由"
-                  className="w-full min-h-[44px] px-3.5 py-2 rounded-xl text-sm bg-[var(--bg-canvas)] border border-[var(--border-hairline)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-hidden focus:border-[var(--accent)]"
+                  className="w-full min-h-11 px-3.5 py-2 rounded-xl text-sm bg-(--bg-canvas) border border-(--border-hairline) text-(--text-primary) placeholder:text-(--text-muted) focus:outline-hidden focus:border-(--accent)"
                 />
               </div>
             </div>
@@ -700,13 +700,13 @@ export const ListsView: React.FC<ListsViewProps> = ({
               <button
                 type="button"
                 onClick={() => setListModalMode(null)}
-                className="min-h-[44px] px-4 py-2 rounded-xl text-sm font-medium text-[var(--text-secondary)] bg-[var(--bg-subtle)] hover:bg-[var(--bg-hover)] transition-colors cursor-pointer"
+                className="min-h-11 px-4 py-2 rounded-xl text-sm font-medium text-(--text-secondary) bg-(--bg-subtle) hover:bg-(--bg-hover) transition-colors cursor-pointer"
               >
                 取消
               </button>
               <button
                 type="submit"
-                className="min-h-[44px] px-5 py-2 rounded-xl text-sm font-medium bg-[var(--accent)] text-[var(--accent-text)] hover:bg-[var(--accent-hover)] transition-colors cursor-pointer"
+                className="min-h-11 px-5 py-2 rounded-xl text-sm font-medium bg-(--accent) text-(--accent-text) hover:bg-(--accent-hover) transition-colors cursor-pointer"
               >
                 保存
               </button>
@@ -725,14 +725,14 @@ export const ListsView: React.FC<ListsViewProps> = ({
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-lg max-h-[82vh] flex flex-col rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] shadow-xl overflow-hidden"
+            className="w-full max-w-lg max-h-[82vh] flex flex-col rounded-2xl bg-(--bg-surface) border border-(--border-hairline) shadow-xl overflow-hidden"
           >
-            <div className="p-5 border-b border-[var(--border-hairline)] flex items-center justify-between gap-3">
+            <div className="p-5 border-b border-(--border-hairline) flex items-center justify-between gap-3">
               <div>
-                <h3 className="text-base font-semibold text-[var(--text-primary)]">
+                <h3 className="text-base font-semibold text-(--text-primary)">
                   添加诗文至「{activeCustomList.listName}」
                 </h3>
-                <p className="text-xs text-[var(--text-muted)] mt-0.5 tabular-nums">
+                <p className="text-xs text-(--text-muted) mt-0.5 tabular-nums">
                   已选 {pickerSelectedIds.length} 篇
                 </p>
               </div>
@@ -740,24 +740,24 @@ export const ListsView: React.FC<ListsViewProps> = ({
                 type="button"
                 onClick={() => setPickerOpen(false)}
                 aria-label="关闭"
-                className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl text-[var(--text-muted)] hover:bg-[var(--bg-subtle)] cursor-pointer"
+                className="min-h-11 min-w-11 flex items-center justify-center rounded-xl text-(--text-muted) hover:bg-(--bg-subtle) cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="px-5 py-3 border-b border-[var(--border-hairline)] space-y-2.5">
+            <div className="px-5 py-3 border-b border-(--border-hairline) space-y-2.5">
               <div className="relative">
-                <Search className="w-4 h-4 text-[var(--text-muted)] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <Search className="w-4 h-4 text-(--text-muted) absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 <input
                   type="text"
                   value={pickerSearch}
                   onChange={(e) => setPickerSearch(e.target.value)}
                   placeholder="检索标题或作者"
-                  className="w-full min-h-[44px] pl-10 pr-4 py-2 rounded-xl text-sm bg-[var(--bg-canvas)] border border-[var(--border-hairline)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-hidden focus:border-[var(--accent)]"
+                  className="w-full min-h-11 pl-10 pr-4 py-2 rounded-xl text-sm bg-(--bg-canvas) border border-(--border-hairline) text-(--text-primary) placeholder:text-(--text-muted) focus:outline-hidden focus:border-(--accent)"
                 />
               </div>
-              <div className="inline-flex items-center gap-1 p-1 rounded-lg bg-[var(--bg-subtle)]">
+              <div className="inline-flex items-center gap-1 p-1 rounded-lg bg-(--bg-subtle)">
                 {(
                   [
                     { id: 'all', label: '全部' },
@@ -769,10 +769,10 @@ export const ListsView: React.FC<ListsViewProps> = ({
                     key={g.id}
                     type="button"
                     onClick={() => setPickerGenre(g.id)}
-                    className={`min-h-[34px] px-3 rounded-md text-xs font-medium transition-colors cursor-pointer ${
+                    className={`min-h-8.5 px-3 rounded-md text-xs font-medium transition-colors cursor-pointer ${
                       pickerGenre === g.id
-                        ? 'bg-[var(--bg-surface)] text-[var(--text-primary)] shadow-xs'
-                        : 'text-[var(--text-secondary)]'
+                        ? 'bg-(--bg-surface) text-(--text-primary) shadow-xs'
+                        : 'text-(--text-secondary)'
                     }`}
                   >
                     {g.label}
@@ -781,7 +781,7 @@ export const ListsView: React.FC<ListsViewProps> = ({
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto divide-y divide-[var(--border-hairline)]">
+            <div className="flex-1 overflow-y-auto divide-y divide-(--border-hairline)">
               {pickerFilteredPoems.map((poem) => {
                 const alreadyIn = existingIdsSet.has(poem.poemId);
                 const selected = pickerSelectedIds.includes(poem.poemId);
@@ -791,23 +791,23 @@ export const ListsView: React.FC<ListsViewProps> = ({
                     type="button"
                     disabled={alreadyIn}
                     onClick={() => togglePickerPoem(poem.poemId)}
-                    className={`w-full px-5 py-3.5 min-h-[56px] text-left flex items-center justify-between gap-3 transition-colors ${
+                    className={`w-full px-5 py-3.5 min-h-14 text-left flex items-center justify-between gap-3 transition-colors ${
                       alreadyIn
                         ? 'opacity-50 cursor-default'
                         : selected
-                        ? 'bg-[var(--accent-soft)] cursor-pointer'
-                        : 'hover:bg-[var(--bg-subtle)] cursor-pointer'
+                        ? 'bg-(--accent-soft) cursor-pointer'
+                        : 'hover:bg-(--bg-subtle) cursor-pointer'
                     }`}
                   >
                     <div className="min-w-0">
-                      <div className="text-sm font-medium font-poetry text-[var(--text-primary)] truncate">
+                      <div className="text-sm font-medium font-poetry text-(--text-primary) truncate">
                         {poem.title}
                       </div>
-                      <div className="text-xs text-[var(--text-muted)] mt-0.5 truncate">
+                      <div className="text-xs text-(--text-muted) mt-0.5 truncate">
                         {poem.dynasty} · {poem.author}
                       </div>
                     </div>
-                    <span className="text-xs font-medium shrink-0 text-[var(--accent)]">
+                    <span className="text-xs font-medium shrink-0 text-(--accent)">
                       {alreadyIn ? '已在清单' : selected ? '已勾选' : '选择'}
                     </span>
                   </button>
@@ -815,11 +815,11 @@ export const ListsView: React.FC<ListsViewProps> = ({
               })}
             </div>
 
-            <div className="p-4 border-t border-[var(--border-hairline)] flex items-center justify-end gap-3 bg-[var(--bg-surface)]">
+            <div className="p-4 border-t border-(--border-hairline) flex items-center justify-end gap-3 bg-(--bg-surface)">
               <button
                 type="button"
                 onClick={() => setPickerOpen(false)}
-                className="min-h-[44px] px-4 py-2 rounded-xl text-sm font-medium text-[var(--text-secondary)] bg-[var(--bg-subtle)] hover:bg-[var(--bg-hover)] cursor-pointer"
+                className="min-h-11 px-4 py-2 rounded-xl text-sm font-medium text-(--text-secondary) bg-(--bg-subtle) hover:bg-(--bg-hover) cursor-pointer"
               >
                 取消
               </button>
@@ -827,7 +827,7 @@ export const ListsView: React.FC<ListsViewProps> = ({
                 type="button"
                 disabled={pickerSelectedIds.length === 0}
                 onClick={handleConfirmPicker}
-                className="min-h-[44px] px-5 py-2 rounded-xl text-sm font-medium bg-[var(--accent)] text-[var(--accent-text)] hover:bg-[var(--accent-hover)] disabled:opacity-40 cursor-pointer disabled:cursor-default"
+                className="min-h-11 px-5 py-2 rounded-xl text-sm font-medium bg-(--accent) text-(--accent-text) hover:bg-(--accent-hover) disabled:opacity-40 cursor-pointer disabled:cursor-default"
               >
                 加入清单
               </button>

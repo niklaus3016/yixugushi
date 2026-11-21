@@ -132,14 +132,14 @@ export default function App() {
       : '我的';
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--bg-canvas)] text-[var(--text-primary)]">
+    <div className="min-h-screen flex flex-col bg-(--bg-canvas) text-(--text-primary)">
       {/* Desktop Top Navigation Bar */}
-      <header className="hidden md:block sticky top-0 z-30 bg-[var(--bg-surface)]/95 backdrop-blur-md border-b border-[var(--border-hairline)]">
+      <header className="hidden md:block sticky top-0 z-30 bg-(--bg-surface)/95 backdrop-blur-md border-b border-(--border-hairline)">
         <div className="max-w-6xl mx-auto px-8 h-16 flex items-center justify-between gap-8">
           <button
             type="button"
             onClick={() => handleSwitchTab('home')}
-            className="text-lg font-bold font-poetry tracking-wider text-[var(--text-primary)] whitespace-nowrap shrink-0 cursor-pointer"
+            className="text-lg font-bold font-poetry tracking-wider text-(--text-primary) whitespace-nowrap shrink-0 cursor-pointer"
           >
             忆序古诗
           </button>
@@ -152,10 +152,10 @@ export default function App() {
                   key={item.id}
                   type="button"
                   onClick={() => handleSwitchTab(item.id)}
-                  className={`min-h-[44px] text-sm font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer border-b-2 ${
+                  className={`min-h-11 text-sm font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer border-b-2 ${
                     isActive
-                      ? 'border-[var(--accent)] text-[var(--accent)]'
-                      : 'border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                      ? 'border-(--accent) text-(--accent)'
+                      : 'border-transparent text-(--text-secondary) hover:text-(--text-primary)'
                   }`}
                 >
                   {item.label}
@@ -167,7 +167,7 @@ export default function App() {
           <button
             type="button"
             onClick={() => handleSwitchTab('read')}
-            className="min-h-[40px] px-4 py-2 rounded-xl text-xs font-medium bg-[var(--accent)] text-[var(--accent-text)] hover:bg-[var(--accent-hover)] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            className="min-h-10 px-4 py-2 rounded-xl text-xs font-medium bg-(--accent) text-(--accent-text) hover:bg-(--accent-hover) transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             继续阅览
           </button>
@@ -177,7 +177,7 @@ export default function App() {
       {/* Mobile Compact Header */}
       {activeTab !== 'read' && (
         <header className="md:hidden px-4 pt-4 pb-2 flex items-center justify-between">
-          <span className="text-lg font-bold font-poetry tracking-wide text-[var(--text-primary)]">
+          <span className="text-lg font-bold font-poetry tracking-wide text-(--text-primary)">
             {mobilePageTitle}
           </span>
         </header>
@@ -254,7 +254,7 @@ export default function App() {
 
       {/* Mobile Fixed Bottom Navigation Bar */}
       <nav
-        className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[var(--bg-surface)]/95 backdrop-blur-md border-t border-[var(--border-hairline)] pb-safe"
+        className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-(--bg-surface)/95 backdrop-blur-md border-t border-(--border-hairline) pb-safe"
         aria-label="底部导航"
       >
         <div className="grid grid-cols-4 h-16 items-center">
@@ -266,10 +266,10 @@ export default function App() {
                 key={item.id}
                 type="button"
                 onClick={() => handleSwitchTab(item.id)}
-                className={`min-h-[48px] flex flex-col items-center justify-center gap-1 transition-colors cursor-pointer ${
+                className={`min-h-12 flex flex-col items-center justify-center gap-1 transition-colors cursor-pointer ${
                   isActive
-                    ? 'text-[var(--accent)]'
-                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                    ? 'text-(--accent)'
+                    : 'text-(--text-muted) hover:text-(--text-primary)'
                 }`}
               >
                 <Icon className="w-5 h-5" />

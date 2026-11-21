@@ -261,8 +261,8 @@ export const ReadView: React.FC<ReadViewProps> = ({
   return (
     <div className="max-w-3xl mx-auto space-y-4 pb-6">
       {/* Slim Top Context & Utility Bar */}
-      <div className="flex items-center justify-between gap-2 min-h-[44px]">
-        <div className="min-w-0 flex items-center gap-2 text-xs text-[var(--text-muted)] truncate tabular-nums">
+      <div className="flex items-center justify-between gap-2 min-h-11">
+        <div className="min-w-0 flex items-center gap-2 text-xs text-(--text-muted) truncate tabular-nums">
           <span className="truncate">{context.name}</span>
           {currentIndex >= 0 && (
             <>
@@ -279,54 +279,54 @@ export const ReadView: React.FC<ReadViewProps> = ({
             type="button"
             onClick={() => onToggleStar(poem.poemId)}
             aria-label={isStarred ? '取消收藏' : '收藏此篇'}
-            className={`min-h-[40px] min-w-[40px] inline-flex items-center justify-center rounded-xl transition-colors cursor-pointer ${
+            className={`min-h-10 min-w-10 inline-flex items-center justify-center rounded-xl transition-colors cursor-pointer ${
               isStarred
-                ? 'text-[var(--accent)] bg-[var(--accent-soft)]'
-                : 'text-[var(--text-secondary)] hover:bg-[var(--bg-subtle)]'
+                ? 'text-(--accent) bg-(--accent-soft)'
+                : 'text-(--text-secondary) hover:bg-(--bg-subtle)'
             }`}
           >
-            <Star className={`w-[18px] h-[18px] ${isStarred ? 'fill-current' : ''}`} />
+            <Star className={`w-4.5 h-4.5 ${isStarred ? 'fill-current' : ''}`} />
           </button>
           <button
             type="button"
             onClick={() => setListSheetOpen(true)}
             aria-label="加入自建清单"
-            className="min-h-[40px] min-w-[40px] inline-flex items-center justify-center rounded-xl text-[var(--text-secondary)] hover:bg-[var(--bg-subtle)] transition-colors cursor-pointer"
+            className="min-h-10 min-w-10 inline-flex items-center justify-center rounded-xl text-(--text-secondary) hover:bg-(--bg-subtle) transition-colors cursor-pointer"
           >
-            <FolderPlus className="w-[18px] h-[18px]" />
+            <FolderPlus className="w-4.5 h-4.5" />
           </button>
           <button
             type="button"
             onClick={() => setShowDisplaySettings((v) => !v)}
             aria-label="字号与主题设置"
-            className={`min-h-[40px] min-w-[40px] inline-flex items-center justify-center rounded-xl transition-colors cursor-pointer ${
+            className={`min-h-10 min-w-10 inline-flex items-center justify-center rounded-xl transition-colors cursor-pointer ${
               showDisplaySettings
-                ? 'text-[var(--accent)] bg-[var(--accent-soft)]'
-                : 'text-[var(--text-secondary)] hover:bg-[var(--bg-subtle)]'
+                ? 'text-(--accent) bg-(--accent-soft)'
+                : 'text-(--text-secondary) hover:bg-(--bg-subtle)'
             }`}
           >
-            <Type className="w-[18px] h-[18px]" />
+            <Type className="w-4.5 h-4.5" />
           </button>
         </div>
       </div>
 
       {/* Collapsible Font & Theme Panel */}
       {showDisplaySettings && (
-        <div className="p-3.5 sm:p-4 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] flex flex-wrap items-center justify-between gap-3">
+        <div className="p-3.5 sm:p-4 rounded-2xl bg-(--bg-surface) border border-(--border-hairline) flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <span className="text-xs text-[var(--text-muted)] whitespace-nowrap">
+            <span className="text-xs text-(--text-muted) whitespace-nowrap">
               字号
             </span>
-            <div className="inline-flex items-center gap-1 p-1 rounded-lg bg-[var(--bg-subtle)]">
+            <div className="inline-flex items-center gap-1 p-1 rounded-lg bg-(--bg-subtle)">
               {([1, 2, 3] as FontLevel[]).map((lvl) => (
                 <button
                   key={lvl}
                   type="button"
                   onClick={() => onUpdateConfig({ fontLevel: lvl })}
-                  className={`min-h-[34px] px-3 rounded-md text-xs font-medium transition-colors cursor-pointer ${
+                  className={`min-h-8.5 px-3 rounded-md text-xs font-medium transition-colors cursor-pointer ${
                     config.fontLevel === lvl
-                      ? 'bg-[var(--bg-surface)] text-[var(--text-primary)] shadow-xs'
-                      : 'text-[var(--text-secondary)]'
+                      ? 'bg-(--bg-surface) text-(--text-primary) shadow-xs'
+                      : 'text-(--text-secondary)'
                   }`}
                 >
                   {lvl === 1 ? '小' : lvl === 2 ? '中' : '大'}
@@ -336,10 +336,10 @@ export const ReadView: React.FC<ReadViewProps> = ({
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-xs text-[var(--text-muted)] whitespace-nowrap">
+            <span className="text-xs text-(--text-muted) whitespace-nowrap">
               主题
             </span>
-            <div className="inline-flex items-center gap-1 p-1 rounded-lg bg-[var(--bg-subtle)]">
+            <div className="inline-flex items-center gap-1 p-1 rounded-lg bg-(--bg-subtle)">
               {(
                 [
                   { id: 'day', label: '日间' },
@@ -351,10 +351,10 @@ export const ReadView: React.FC<ReadViewProps> = ({
                   key={t.id}
                   type="button"
                   onClick={() => onUpdateConfig({ theme: t.id })}
-                  className={`min-h-[34px] px-3 rounded-md text-xs font-medium transition-colors cursor-pointer whitespace-nowrap ${
+                  className={`min-h-8.5 px-3 rounded-md text-xs font-medium transition-colors cursor-pointer whitespace-nowrap ${
                     config.theme === t.id
-                      ? 'bg-[var(--bg-surface)] text-[var(--text-primary)] shadow-xs'
-                      : 'text-[var(--text-secondary)]'
+                      ? 'bg-(--bg-surface) text-(--text-primary) shadow-xs'
+                      : 'text-(--text-secondary)'
                   }`}
                 >
                   {t.label}
@@ -366,27 +366,27 @@ export const ReadView: React.FC<ReadViewProps> = ({
       )}
 
       {/* Main Poem Sheet */}
-      <article className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] px-5 py-7 sm:px-8 sm:py-9">
+      <article className="rounded-2xl bg-(--bg-surface) border border-(--border-hairline) px-5 py-7 sm:px-8 sm:py-9">
         <header className="text-center max-w-lg mx-auto">
-          <h1 className="text-xl sm:text-2xl md:text-[26px] font-semibold font-poetry text-[var(--text-primary)] leading-snug [text-wrap:balance]">
+          <h1 className="text-xl sm:text-2xl md:text-[26px] font-semibold font-poetry text-(--text-primary) leading-snug text-balance">
             {poem.title}
           </h1>
-          <p className="mt-2.5 text-sm text-[var(--text-muted)] tracking-wider">
+          <p className="mt-2.5 text-sm text-(--text-muted) tracking-wider">
             〔{poem.dynasty}〕{poem.author}
           </p>
-          <div className="w-10 h-px bg-[var(--border-hairline)] mx-auto mt-5" />
+          <div className="w-10 h-px bg-(--border-hairline) mx-auto mt-5" />
         </header>
 
         {/* Occlusion Controls Banner when Active */}
         {occlusionMode && (
-          <div className="mt-5 px-3.5 py-2.5 rounded-xl bg-[var(--bg-canvas)] border border-[var(--border-hairline)] flex items-center justify-between gap-3">
-            <span className="text-xs text-[var(--text-secondary)]">
+          <div className="mt-5 px-3.5 py-2.5 rounded-xl bg-(--bg-canvas) border border-(--border-hairline) flex items-center justify-between gap-3">
+            <span className="text-xs text-(--text-secondary)">
               轻点诗句可显隐回味
             </span>
             <button
               type="button"
               onClick={toggleHideAll}
-              className="min-h-[36px] px-3 rounded-lg text-xs font-medium bg-[var(--accent-soft)] text-[var(--accent)] hover:opacity-90 cursor-pointer whitespace-nowrap shrink-0"
+              className="min-h-9 px-3 rounded-lg text-xs font-medium bg-(--accent-soft) text-(--accent) hover:opacity-90 cursor-pointer whitespace-nowrap shrink-0"
             >
               {allHidden ? '全部显现' : '全篇隐藏'}
             </button>
@@ -404,7 +404,7 @@ export const ReadView: React.FC<ReadViewProps> = ({
             if (!occlusionMode) {
               const clauses = splitClauses(sentence);
               return (
-                <p key={idx} className="text-[var(--text-primary)]">
+                <p key={idx} className="text-(--text-primary)">
                   {clauses.map((clause, cIdx) => (
                     <span
                       key={cIdx}
@@ -428,13 +428,13 @@ export const ReadView: React.FC<ReadViewProps> = ({
                 onClick={() => toggleSentenceVisibility(idx)}
                 className={`w-full py-2 px-3 rounded-xl transition-colors cursor-pointer ${
                   isHidden
-                    ? 'bg-[var(--bg-subtle)] text-transparent select-none border border-dashed border-[var(--border-hairline)] relative'
-                    : 'text-[var(--text-primary)] hover:bg-[var(--bg-canvas)]'
+                    ? 'bg-(--bg-subtle) text-transparent select-none border border-dashed border-(--border-hairline) relative'
+                    : 'text-(--text-primary) hover:bg-(--bg-canvas)'
                 }`}
               >
                 <span>{sentence}</span>
                 {isHidden && (
-                  <span className="absolute inset-0 flex items-center justify-center text-xs font-ui text-[var(--text-muted)]">
+                  <span className="absolute inset-0 flex items-center justify-center text-xs font-ui text-(--text-muted)">
                     轻点显现第 {idx + 1} 句
                   </span>
                 )}
@@ -444,15 +444,15 @@ export const ReadView: React.FC<ReadViewProps> = ({
         </div>
 
         {/* Clean Tool Strip (Fits comfortably on 1 row on 360px+ mobile with zero overflow) */}
-        <div className="mt-8 pt-4 border-t border-[var(--border-hairline)] flex flex-wrap items-center justify-between gap-1.5">
+        <div className="mt-8 pt-4 border-t border-(--border-hairline) flex flex-wrap items-center justify-between gap-1.5">
           <div className="flex items-center gap-1">
             <button
               type="button"
               onClick={occlusionMode ? exitOcclusion : enterOcclusion}
-              className={`min-h-[40px] inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
+              className={`min-h-10 inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
                 occlusionMode
-                  ? 'bg-[var(--accent)] text-[var(--accent-text)]'
-                  : 'text-[var(--text-secondary)] hover:bg-[var(--bg-subtle)] hover:text-[var(--text-primary)]'
+                  ? 'bg-(--accent) text-(--accent-text)'
+                  : 'text-(--text-secondary) hover:bg-(--bg-subtle) hover:text-(--text-primary)'
               }`}
             >
               {occlusionMode ? (
@@ -472,7 +472,7 @@ export const ReadView: React.FC<ReadViewProps> = ({
               <button
                 type="button"
                 onClick={() => setShowMatchPage(true)}
-                className="min-h-[40px] inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-medium text-[var(--text-secondary)] hover:bg-[var(--bg-subtle)] hover:text-[var(--accent)] transition-colors cursor-pointer whitespace-nowrap shrink-0"
+                className="min-h-10 inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-medium text-(--text-secondary) hover:bg-(--bg-subtle) hover:text-(--accent) transition-colors cursor-pointer whitespace-nowrap shrink-0"
               >
                 <Puzzle className="w-3.5 h-3.5 shrink-0" />
                 选句补诗
@@ -486,10 +486,10 @@ export const ReadView: React.FC<ReadViewProps> = ({
                 type="button"
                 onClick={handleToggleSpeech}
                 aria-label={isSpeaking ? '暂停朗读' : '朗读'}
-                className={`min-h-[40px] inline-flex items-center gap-1 px-2 py-1.5 rounded-xl text-xs font-medium transition-colors cursor-pointer whitespace-nowrap ${
+                className={`min-h-10 inline-flex items-center gap-1 px-2 py-1.5 rounded-xl text-xs font-medium transition-colors cursor-pointer whitespace-nowrap ${
                   isSpeaking
-                    ? 'bg-[var(--accent-soft)] text-[var(--accent)]'
-                    : 'text-[var(--text-secondary)] hover:bg-[var(--bg-subtle)] hover:text-[var(--text-primary)]'
+                    ? 'bg-(--accent-soft) text-(--accent)'
+                    : 'text-(--text-secondary) hover:bg-(--bg-subtle) hover:text-(--text-primary)'
                 }`}
               >
                 {isSpeaking ? (
@@ -508,7 +508,7 @@ export const ReadView: React.FC<ReadViewProps> = ({
                   handleSpeedChange(nextSpeed);
                 }}
                 aria-label={`切换朗读语速，当前 ${config.audioSpeed} 倍速`}
-                className="min-h-[36px] px-2 py-1 rounded-lg text-xs font-medium text-[var(--text-muted)] hover:bg-[var(--bg-subtle)] hover:text-[var(--text-primary)] tabular-nums transition-colors cursor-pointer whitespace-nowrap"
+                className="min-h-9 px-2 py-1 rounded-lg text-xs font-medium text-(--text-muted) hover:bg-(--bg-subtle) hover:text-(--text-primary) tabular-nums transition-colors cursor-pointer whitespace-nowrap"
               >
                 {config.audioSpeed}x
               </button>
@@ -523,7 +523,7 @@ export const ReadView: React.FC<ReadViewProps> = ({
           type="button"
           disabled={!prevPoemId}
           onClick={() => prevPoemId && onSelectPoem(prevPoemId)}
-          className="min-h-[46px] inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-2xl text-sm font-medium bg-[var(--bg-surface)] border border-[var(--border-hairline)] text-[var(--text-primary)] hover:border-[var(--accent)] disabled:opacity-35 transition-colors cursor-pointer disabled:cursor-default whitespace-nowrap"
+          className="min-h-11.5 inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-2xl text-sm font-medium bg-(--bg-surface) border border-(--border-hairline) text-(--text-primary) hover:border-(--accent) disabled:opacity-35 transition-colors cursor-pointer disabled:cursor-default whitespace-nowrap"
         >
           <ChevronLeft className="w-4 h-4 shrink-0" />
           上一篇
@@ -532,7 +532,7 @@ export const ReadView: React.FC<ReadViewProps> = ({
           type="button"
           disabled={!nextPoemId}
           onClick={() => nextPoemId && onSelectPoem(nextPoemId)}
-          className="min-h-[46px] inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-2xl text-sm font-medium bg-[var(--bg-surface)] border border-[var(--border-hairline)] text-[var(--text-primary)] hover:border-[var(--accent)] disabled:opacity-35 transition-colors cursor-pointer disabled:cursor-default whitespace-nowrap"
+          className="min-h-11.5 inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-2xl text-sm font-medium bg-(--bg-surface) border border-(--border-hairline) text-(--text-primary) hover:border-(--accent) disabled:opacity-35 transition-colors cursor-pointer disabled:cursor-default whitespace-nowrap"
         >
           下一篇
           <ChevronRight className="w-4 h-4 shrink-0" />
@@ -540,9 +540,9 @@ export const ReadView: React.FC<ReadViewProps> = ({
       </div>
 
       {/* Annotations / Translation / Appreciation */}
-      <section className="rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] overflow-hidden">
+      <section className="rounded-2xl bg-(--bg-surface) border border-(--border-hairline) overflow-hidden">
         <div
-          className="grid grid-cols-3 border-b border-[var(--border-hairline)]"
+          className="grid grid-cols-3 border-b border-(--border-hairline)"
           role="tablist"
           aria-label="诗文解析"
         >
@@ -559,10 +559,10 @@ export const ReadView: React.FC<ReadViewProps> = ({
               role="tab"
               aria-selected={annotationTab === tab.id}
               onClick={() => setAnnotationTab(tab.id)}
-              className={`min-h-[44px] px-3 py-2 text-sm font-medium border-b-2 transition-colors cursor-pointer whitespace-nowrap ${
+              className={`min-h-11 px-3 py-2 text-sm font-medium border-b-2 transition-colors cursor-pointer whitespace-nowrap ${
                 annotationTab === tab.id
-                  ? 'border-[var(--accent)] text-[var(--accent)]'
-                  : 'border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                  ? 'border-(--accent) text-(--accent)'
+                  : 'border-transparent text-(--text-secondary) hover:text-(--text-primary)'
               }`}
             >
               {tab.label}
@@ -570,7 +570,7 @@ export const ReadView: React.FC<ReadViewProps> = ({
           ))}
         </div>
 
-        <div className="p-5 sm:p-6 text-sm md:text-base leading-7 text-[var(--text-secondary)] whitespace-pre-line">
+        <div className="p-5 sm:p-6 text-sm md:text-base leading-7 text-(--text-secondary) whitespace-pre-line">
           {annotationTab === 'note' && (poem.note || '暂无注释')}
           {annotationTab === 'trans' && (poem.trans || '暂无白话译文')}
           {annotationTab === 'intro' && (poem.intro || '暂无赏析')}
@@ -587,25 +587,25 @@ export const ReadView: React.FC<ReadViewProps> = ({
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-md max-h-[80vh] flex flex-col rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] shadow-xl overflow-hidden"
+            className="w-full max-w-md max-h-[80vh] flex flex-col rounded-2xl bg-(--bg-surface) border border-(--border-hairline) shadow-xl overflow-hidden"
           >
-            <div className="p-5 border-b border-[var(--border-hairline)] flex items-center justify-between gap-3">
-              <h3 className="text-base font-semibold text-[var(--text-primary)]">
+            <div className="p-5 border-b border-(--border-hairline) flex items-center justify-between gap-3">
+              <h3 className="text-base font-semibold text-(--text-primary)">
                 收入自建清单
               </h3>
               <button
                 type="button"
                 onClick={() => setListSheetOpen(false)}
                 aria-label="关闭"
-                className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl text-[var(--text-muted)] hover:bg-[var(--bg-subtle)] cursor-pointer"
+                className="min-h-11 min-w-11 flex items-center justify-center rounded-xl text-(--text-muted) hover:bg-(--bg-subtle) cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto divide-y divide-[var(--border-hairline)]">
+            <div className="flex-1 overflow-y-auto divide-y divide-(--border-hairline)">
               {userLists.length === 0 ? (
-                <div className="p-6 text-center text-sm text-[var(--text-muted)]">
+                <div className="p-6 text-center text-sm text-(--text-muted)">
                   暂无自建清单，可在下方直接新建
                 </div>
               ) : (
@@ -620,21 +620,21 @@ export const ReadView: React.FC<ReadViewProps> = ({
                           ? onRemovePoemFromList(list.listId, poem.poemId)
                           : onAddPoemToList(list.listId, poem.poemId)
                       }
-                      className="w-full px-5 py-3.5 min-h-[56px] flex items-center justify-between gap-3 text-left hover:bg-[var(--bg-subtle)] transition-colors cursor-pointer"
+                      className="w-full px-5 py-3.5 min-h-14 flex items-center justify-between gap-3 text-left hover:bg-(--bg-subtle) transition-colors cursor-pointer"
                     >
                       <div className="min-w-0">
-                        <div className="text-sm font-medium text-[var(--text-primary)] truncate">
+                        <div className="text-sm font-medium text-(--text-primary) truncate">
                           {list.listName}
                         </div>
-                        <div className="text-xs text-[var(--text-muted)] tabular-nums">
+                        <div className="text-xs text-(--text-muted) tabular-nums">
                           {list.sortIds.length} 篇
                         </div>
                       </div>
                       <span
                         className={`text-xs font-medium shrink-0 ${
                           included
-                            ? 'text-[var(--accent)]'
-                            : 'text-[var(--text-muted)]'
+                            ? 'text-(--accent)'
+                            : 'text-(--text-muted)'
                         }`}
                       >
                         {included ? '已收入' : '加入'}
@@ -647,7 +647,7 @@ export const ReadView: React.FC<ReadViewProps> = ({
 
             <form
               onSubmit={handleQuickCreateList}
-              className="p-4 border-t border-[var(--border-hairline)] flex items-center gap-2 bg-[var(--bg-surface)]"
+              className="p-4 border-t border-(--border-hairline) flex items-center gap-2 bg-(--bg-surface)"
             >
               <input
                 type="text"
@@ -655,12 +655,12 @@ export const ReadView: React.FC<ReadViewProps> = ({
                 value={quickListName}
                 onChange={(e) => setQuickListName(e.target.value)}
                 placeholder="新建清单并收入此篇..."
-                className="flex-1 min-h-[44px] px-3.5 py-2 rounded-xl text-sm bg-[var(--bg-canvas)] border border-[var(--border-hairline)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-hidden focus:border-[var(--accent)]"
+                className="flex-1 min-h-11 px-3.5 py-2 rounded-xl text-sm bg-(--bg-canvas) border border-(--border-hairline) text-(--text-primary) placeholder:text-(--text-muted) focus:outline-hidden focus:border-(--accent)"
               />
               <button
                 type="submit"
                 disabled={!quickListName.trim()}
-                className="min-h-[44px] inline-flex items-center gap-1 px-4 py-2 rounded-xl text-xs font-medium bg-[var(--accent)] text-[var(--accent-text)] hover:bg-[var(--accent-hover)] disabled:opacity-40 cursor-pointer shrink-0"
+                className="min-h-11 inline-flex items-center gap-1 px-4 py-2 rounded-xl text-xs font-medium bg-(--accent) text-(--accent-text) hover:bg-(--accent-hover) disabled:opacity-40 cursor-pointer shrink-0"
               >
                 <Plus className="w-4 h-4" />
                 新建

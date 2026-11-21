@@ -41,33 +41,33 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
       onClick={onCancel}
     >
       <div
-        className="w-full max-w-sm rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-hairline)] p-6 shadow-xl"
+        className="w-full max-w-sm rounded-2xl bg-(--bg-surface) border border-(--border-hairline) p-6 shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
         <h3
           id="confirm-dialog-title"
-          className="text-base font-semibold text-[var(--text-primary)]"
+          className="text-base font-semibold text-(--text-primary)"
         >
           {title}
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">
+        <p className="mt-2 text-sm leading-relaxed text-(--text-secondary)">
           {description}
         </p>
         <div className="mt-6 flex items-center justify-end gap-3">
           <button
             type="button"
             onClick={onCancel}
-            className="min-h-[44px] px-4 py-2 rounded-xl text-sm font-medium text-[var(--text-secondary)] bg-[var(--bg-subtle)] hover:bg-[var(--bg-hover)] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            className="min-h-11 px-4 py-2 rounded-xl text-sm font-medium text-(--text-secondary) bg-(--bg-subtle) hover:bg-(--bg-hover) transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             {cancelLabel}
           </button>
           <button
             type="button"
             onClick={onConfirm}
-            className={`min-h-[44px] px-4 py-2 rounded-xl text-sm font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+            className={`min-h-11 px-4 py-2 rounded-xl text-sm font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
               destructive
-                ? 'bg-[var(--danger)] text-white hover:opacity-90'
-                : 'bg-[var(--accent)] text-[var(--accent-text)] hover:bg-[var(--accent-hover)]'
+                ? 'bg-(--danger) text-white hover:opacity-90'
+                : 'bg-(--accent) text-(--accent-text) hover:bg-(--accent-hover)'
             }`}
           >
             {confirmLabel}

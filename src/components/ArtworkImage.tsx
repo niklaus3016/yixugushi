@@ -19,7 +19,7 @@ export const ArtworkImage: React.FC<ArtworkImageProps> = ({
   if (failed) {
     return (
       <div
-        className={`flex flex-col items-center justify-center bg-[var(--bg-subtle)] text-[var(--text-muted)] ${className}`}
+        className={`flex flex-col items-center justify-center bg-(--bg-subtle) text-(--text-muted) ${className}`}
         aria-label={alt}
       >
         <BookOpen className="w-6 h-6 mb-1.5 opacity-60" />
